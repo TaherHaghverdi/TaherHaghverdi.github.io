@@ -106,16 +106,16 @@
 						<!-- Contact -->
 							<article id="contact">
 								<h2 class="major">Contact</h2>
-								<form method="post" action="#">
+								<form id="contact-form">
 									<div class="fields">
 										<div class="field half">
-											<label for="name">Name</label>
+											<label for="name">Title</label>
 											<input type="text" name="name" id="name" />
 										</div>
-										<div class="field half">
+									<!--	<div class="field half">
 											<label for="email">Email</label>
 											<input type="text" name="email" id="email" />
-										</div>
+										</div> -->
 										<div class="field">
 											<label for="message">Message</label>
 											<textarea name="message" id="message" rows="4"></textarea>
@@ -395,17 +395,21 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
 			<script>
-			    function openMailClient() {
+			    document.getElementById('contact-form').addEventListener('submit', function(event) {
+			        event.preventDefault();
+			
+			        // Get form data
 			        const name = document.getElementById('name').value;
-			        const email = document.getElementById('email').value;
 			        const message = document.getElementById('message').value;
 			
-			        const subject = `Message from ${name}`;
-			        const body = `Name: ${name}%0AEmail: ${email}%0A%0A${message}`;
-			        
-			        window.location.href = `mailto:your-email@example.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-			    }
+			        // Construct mailto link
+			        const mailtoLink = `mailto:t.haghverdi93@gmail.com?subject=${encodeURIComponent(name)}&body=${encodeURIComponent(message)}`;
+			
+			        // Open the mailto link
+			        window.location.href = mailtoLink;
+			    });
 			</script>
+
 
 	</body>
 </html>
