@@ -1,0 +1,10 @@
+function openMailClient() {
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const message = document.getElementById('message').value;
+
+    const subject = `Message from ${name}`;
+    const body = `Name: ${name}%0AEmail: ${email}%0A%0A${message}`;
+
+    window.location.href = `mailto:your-email@example.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+}
